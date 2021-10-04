@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace FiapWebservicesRestfulTechnologies.Controllers
 {
+    [ApiVersion("1")]
     [ApiController]
-    [Route("api/[controller]")]
-    public class UserController : ControllerBase
+    [Route("api/[controller]/v{version:ApiVersion}")]
+    public class UsersController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UsersController> _logger;
 
         private IUserService _userService;
 
-        public UserController(ILogger<UserController> logger, IUserService userService)
+        public UsersController(ILogger<UsersController> logger, IUserService userService)
         {
             _logger = logger;
             _userService = userService;

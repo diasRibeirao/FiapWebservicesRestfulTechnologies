@@ -3,8 +3,6 @@ using FiapWebservicesRestfulTechnologies.Model.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 {
@@ -24,7 +22,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
                 _context.Add(user);
                 _context.SaveChanges();
             } 
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

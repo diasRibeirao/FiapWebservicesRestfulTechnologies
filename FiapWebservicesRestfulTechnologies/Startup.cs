@@ -29,6 +29,9 @@ namespace FiapWebservicesRestfulTechnologies
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
+            // Versioning API
+            services.AddApiVersioning();
+
             // Dependency Injection
             services.AddScoped<IUserService, UserServiceImplementation>();
 
