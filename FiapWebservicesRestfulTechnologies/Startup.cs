@@ -50,7 +50,7 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddApiVersioning();
 
             // Dependency Injection
-            services.AddScoped<IUsersService, UsersServiceImplementation>();
+            services.AddScoped<IUsuarioService, UsuarioServiceImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
         }

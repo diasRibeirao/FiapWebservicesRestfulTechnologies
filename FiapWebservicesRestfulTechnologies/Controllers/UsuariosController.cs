@@ -1,24 +1,20 @@
-﻿using FiapWebservicesRestfulTechnologies.Model;
+﻿using FiapWebservicesRestfulTechnologies.Data.VO;
 using FiapWebservicesRestfulTechnologies.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FiapWebservicesRestfulTechnologies.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
     [Route("api/v{version:ApiVersion}/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsuariosController : ControllerBase
     {
-        private readonly ILogger<UsersController> _logger;
+        private readonly ILogger<UsuariosController> _logger;
 
-        private IUsersService _userService;
+        private IUsuarioService _userService;
 
-        public UsersController(ILogger<UsersController> logger, IUsersService userService)
+        public UsuariosController(ILogger<UsuariosController> logger, IUsuarioService userService)
         {
             _logger = logger;
             _userService = userService;
@@ -39,17 +35,17 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] User  user)
+        public IActionResult Post([FromBody] UsuarioVO usuario)
         {
-            if (user == null) return BadRequest();
-            return Ok(_userService.Create(user));
+            if (usuario == null) return BadRequest();
+            return Ok(_userService.Create(usuario));
         }
 
         [HttpPut]
-        public IActionResult Putt([FromBody] User user)
+        public IActionResult Putt([FromBody] UsuarioVO usuario)
         {
-            if (user == null) return BadRequest();
-            return Ok(_userService.Update(user));
+            if (usuario == null) return BadRequest();
+            return Ok(_userService.Update(usuario));
         }
 
         [HttpDelete("{id}")]
