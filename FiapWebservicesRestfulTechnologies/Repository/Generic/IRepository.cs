@@ -1,17 +1,18 @@
 ﻿using FiapWebservicesRestfulTechnologies.Model;
+using FiapWebservicesRestfulTechnologies.Model.Base;
 using System.Collections.Generic;
 
 namespace FiapWebservicesRestfulTechnologies.Repository
 {
-    public interface IUsersRepository
+    public interface IRepository<T> where T : BaseEntity
     {
-        Users Create(Users user);
+        T Create(T item);
 
-        Users FindById(long id);
+        T FindById(long id);
 
-        List<Users> FindAll();
+        List<T> FindAll();
 
-        Users Update(Users user);
+        T Update(T item);
 
         void Delete(long id);
 

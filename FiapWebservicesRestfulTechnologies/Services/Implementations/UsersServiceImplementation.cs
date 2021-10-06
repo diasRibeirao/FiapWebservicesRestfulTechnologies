@@ -8,33 +8,33 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 {
     public class UsersServiceImplementation : IUsersService
     {
-        private readonly IUsersRepository _repository;
+        private readonly IRepository<User> _repository;
 
-        public UsersServiceImplementation(IUsersRepository repository)
+        public UsersServiceImplementation(IRepository<User> repository)
         {
             _repository = repository;
         }
 
         // Método responsável por buscar todos os usuários
-        public List<Users> FindAll()
+        public List<User> FindAll()
         {
             return _repository.FindAll();
         }
 
         // Método responsável por buscar um usuário pelo ID
-        public Users FindById(long id)
+        public User FindById(long id)
         {
             return _repository.FindById(id);
         }
 
         // Método responsável por adicionar um usuário
-        public Users Create(Users user)
+        public User Create(User user)
         {
             return _repository.Create(user);
         }
 
         // Método responsável pelo update de um usuário
-        public Users Update(Users user)
+        public User Update(User user)
         {
             return _repository.Update(user);
         }

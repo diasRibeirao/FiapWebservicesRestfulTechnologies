@@ -7,12 +7,12 @@ using Microsoft.Extensions.Hosting;
 using FiapWebservicesRestfulTechnologies.Model.Context;
 using FiapWebservicesRestfulTechnologies.Services;
 using FiapWebservicesRestfulTechnologies.Services.Implementations;
-using FiapWebservicesRestfulTechnologies.Repository.Implementations;
 using FiapWebservicesRestfulTechnologies.Repository;
 using Serilog;
 using System;
 using MySqlConnector;
 using System.Collections.Generic;
+using FiapWebservicesRestfulTechnologies.Repository.Generic;
 
 namespace FiapWebservicesRestfulTechnologies
 {
@@ -51,7 +51,7 @@ namespace FiapWebservicesRestfulTechnologies
 
             // Dependency Injection
             services.AddScoped<IUsersService, UsersServiceImplementation>();
-            services.AddScoped<IUsersRepository, UsersRepositoryImplementation>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
         }
 

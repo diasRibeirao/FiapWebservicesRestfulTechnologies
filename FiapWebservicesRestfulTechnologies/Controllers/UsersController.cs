@@ -39,14 +39,14 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Users  user)
+        public IActionResult Post([FromBody] User  user)
         {
             if (user == null) return BadRequest();
             return Ok(_userService.Create(user));
         }
 
         [HttpPut]
-        public IActionResult Putt([FromBody] Users user)
+        public IActionResult Putt([FromBody] User user)
         {
             if (user == null) return BadRequest();
             return Ok(_userService.Update(user));

@@ -5,13 +5,13 @@ namespace FiapWebservicesRestfulTechnologies.Services
 {
     public interface IUsersService
     {
-        Users Create(Users user);
+        User Create(User user);
 
-        Users FindById(long id);
+        User FindById(long id);
 
-        List<Users> FindAll();
+        List<User> FindAll();
 
-        Users Update(Users user);
+        User Update(User user);
 
         void Delete(long id);
     }
