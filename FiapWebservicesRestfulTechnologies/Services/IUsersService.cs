@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FiapWebservicesRestfulTechnologies.Services
 {
-    public interface IUserService
+    public interface IUsersService
     {
         User Create(User user);
 

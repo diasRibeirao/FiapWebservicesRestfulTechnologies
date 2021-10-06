@@ -11,14 +11,14 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
 {
     [ApiVersion("1")]
     [ApiController]
-    [Route("api/[controller]/v{version:ApiVersion}")]
+    [Route("api/v{version:ApiVersion}/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly ILogger<UsersController> _logger;
 
-        private IUserService _userService;
+        private IUsersService _userService;
 
-        public UsersController(ILogger<UsersController> logger, IUserService userService)
+        public UsersController(ILogger<UsersController> logger, IUsersService userService)
         {
             _logger = logger;
             _userService = userService;

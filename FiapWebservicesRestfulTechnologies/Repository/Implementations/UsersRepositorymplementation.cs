@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FiapWebservicesRestfulTechnologies.Services.Implementations
+namespace FiapWebservicesRestfulTechnologies.Repository.Implementations
 {
-    public class UserServiceImplementation : IUserService
+    public class UsersRepositoryImplementation : IUsersRepository
     {
         private MySQLContext _context;
 
-        public UserServiceImplementation(MySQLContext context)
+        public UsersRepositoryImplementation(MySQLContext context)
         {
             _context = context;
         }
@@ -51,7 +51,6 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
             return _context.Users.ToList();
         }
 
-
         public User FindById(long id)
         {
             return _context.Users.SingleOrDefault(p => p.Id.Equals(id));
@@ -78,7 +77,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
             return user;
         }
 
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Users.Any(p => p.Id.Equals(id));
         }

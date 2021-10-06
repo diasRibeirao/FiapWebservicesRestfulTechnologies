@@ -7,7 +7,8 @@ using Microsoft.Extensions.Hosting;
 using FiapWebservicesRestfulTechnologies.Model.Context;
 using FiapWebservicesRestfulTechnologies.Services;
 using FiapWebservicesRestfulTechnologies.Services.Implementations;
-
+using FiapWebservicesRestfulTechnologies.Repository.Implementations;
+using FiapWebservicesRestfulTechnologies.Repository;
 
 namespace FiapWebservicesRestfulTechnologies
 {
@@ -23,7 +24,6 @@ namespace FiapWebservicesRestfulTechnologies
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
@@ -33,7 +33,8 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddApiVersioning();
 
             // Dependency Injection
-            services.AddScoped<IUserService, UserServiceImplementation>();
+            services.AddScoped<IUsersService, UsersServiceImplementation>();
+            services.AddScoped<IUsersRepository, UsersRepositoryImplementation>();
 
         }
 
