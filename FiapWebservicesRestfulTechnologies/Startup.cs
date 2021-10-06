@@ -13,10 +13,11 @@ using System;
 using MySqlConnector;
 using System.Collections.Generic;
 using FiapWebservicesRestfulTechnologies.Repository.Generic;
+using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace FiapWebservicesRestfulTechnologies
 {
-
     public class Startup
     {        
         public IConfiguration Configuration { get; }
@@ -49,6 +50,19 @@ namespace FiapWebservicesRestfulTechnologies
             // Versioning API
             services.AddApiVersioning();
 
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo
+                    {
+                        Title = "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO",
+                        Version = "v1",
+                        Description = "API RESTful desenvolvimento para avaliação da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
+                        Contact = new OpenApiContact
+                        {
+                            Name = "Grupo 2 "                        }
+                    });
+            });
+
             // Dependency Injection
             services.AddScoped<IUsuarioService, UsuarioServiceImplementation>();
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
@@ -66,6 +80,17 @@ namespace FiapWebservicesRestfulTechnologies
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json",
+                    "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO");
+            });
+
+            var option = new RewriteOptions();
+            option.AddRedirect("^$", "Swagger");
+            app.UseRewriter(option);
 
             app.UseAuthorization();
 
