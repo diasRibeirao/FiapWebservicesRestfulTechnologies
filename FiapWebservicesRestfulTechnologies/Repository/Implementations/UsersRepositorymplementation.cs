@@ -15,7 +15,7 @@ namespace FiapWebservicesRestfulTechnologies.Repository.Implementations
             _context = context;
         }
 
-        public User Create(User user)
+        public Users Create(Users user)
         {
             try
             {
@@ -46,19 +46,19 @@ namespace FiapWebservicesRestfulTechnologies.Repository.Implementations
             }
         }
 
-        public List<User> FindAll()
+        public List<Users> FindAll()
         {
             return _context.Users.ToList();
         }
 
-        public User FindById(long id)
+        public Users FindById(long id)
         {
             return _context.Users.SingleOrDefault(p => p.Id.Equals(id));
         }
 
-        public User Update(User user)
+        public Users Update(Users user)
         {
-            if (!Exists(user.Id)) return new User();
+            if (!Exists(user.Id)) return null;
             
             var result = _context.Users.SingleOrDefault(p => p.Id.Equals(user.Id));
 
@@ -69,7 +69,7 @@ namespace FiapWebservicesRestfulTechnologies.Repository.Implementations
                     _context.Entry(result).CurrentValues.SetValues(user);
                     _context.SaveChanges();
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
                     throw;
                 }
