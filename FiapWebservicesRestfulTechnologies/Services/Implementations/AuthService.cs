@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 {
-    public class LoginService : ILoginService
+    public class AuthService : IAuthService
     {
         private const string DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
         private TokenConfiguration _configuration;
@@ -19,7 +19,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
         private readonly IUsuarioService _usuarioService;
         private readonly ITokenService _tokenService;
 
-        public LoginService(TokenConfiguration configuration, IUsuarioService usuarioService, ITokenService tokenService)
+        public AuthService(TokenConfiguration configuration, IUsuarioService usuarioService, ITokenService tokenService)
         {
             _configuration = configuration;
             _usuarioService = usuarioService;

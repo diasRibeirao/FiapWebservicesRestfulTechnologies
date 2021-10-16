@@ -55,6 +55,97 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Revoke",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accessToken\" : \"{{accessToken}}\",\r\n    \"refreshToken\" : \"{{refreshToken}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/auth/revoke",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"auth",
+										"revoke"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (responseCode.code >= 200 & responseCode.code <= 299) {\r",
+											"    var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"    postman.setEnvironmentVariable('accessToken', jsonData.accessToken);\r",
+											"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjNzBlODRlZDIyMTU0NmZjYTA4MmZhMmYwYjdiNzUyYyIsInVuaXF1ZV9uYW1lIjoiZW1lcnNvbi5kaWFzIiwiZXhwIjoxNjM0NDA2MzM1LCJpc3MiOiJFeGVtcGxlSXNzdWVyIiwiYXVkIjoiRXhlbXBsZUF1ZGllbmNlIn0.ytP4IcpvRdoNyWegRgmZhJGlAbozn5YvWCw8CHy9dXw\",\r\n    \"refreshToken\": \"vxk0V7GTMTJOUvQqGx9TnTNlX/VCu7LAI/4zusu4F2c=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/auth/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -138,7 +229,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -220,7 +311,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseUrl}}/api/v{{version}}/usuarios/6",
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios/7",
 									"host": [
 										"{{baseUrl}}"
 									],
@@ -228,7 +319,7 @@
 										"api",
 										"v{{version}}",
 										"usuarios",
-										"6"
+										"7"
 									]
 								}
 							},

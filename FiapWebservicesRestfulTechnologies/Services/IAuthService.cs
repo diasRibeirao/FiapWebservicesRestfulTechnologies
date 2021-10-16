@@ -2,7 +2,7 @@
 
 namespace FiapWebservicesRestfulTechnologies.Services
 {
-    public interface ILoginService
+    public interface IAuthService
     {
         TokenDTO ValidateCredentials(UsuarioLoginDTO usuarioLogin);
 

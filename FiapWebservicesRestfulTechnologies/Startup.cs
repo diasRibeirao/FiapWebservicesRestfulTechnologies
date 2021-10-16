@@ -116,7 +116,7 @@ namespace FiapWebservicesRestfulTechnologies
 
             // Dependency Injection
             services.AddScoped<IUsuarioService, UsuarioService>();
-            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));

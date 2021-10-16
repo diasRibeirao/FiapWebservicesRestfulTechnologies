@@ -15,9 +15,9 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private ILoginService _loginService;
+        private IAuthService _loginService;
 
-        public AuthController(ILoginService loginService)
+        public AuthController(IAuthService loginService)
         {
             _loginService = loginService;
         }
