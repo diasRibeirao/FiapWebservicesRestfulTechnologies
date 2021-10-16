@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "c520b0ed-3ed2-4b97-b988-dfdbbe593b8b",
+		"name": "FiapWebservicesRestfulTechnologies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Autenticar",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (responseCode.code >= 200 & responseCode.code <= 299) {\r",
+											"    var jsonData = JSON.parse(responseBody);\r",
+											"\r",
+											"    postman.setEnvironmentVariable('accessToken', jsonData.accessToken);\r",
+											"    postman.setEnvironmentVariable('refreshToken', jsonData.refreshToken);\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\" : \"emerson.dias\",\r\n    \"senha\" : \"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/auth/signin",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"auth",
+										"signin"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "Busca todos usuarios",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca usuario pelo ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"usuarios",
+										"1"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar usuario",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar usuario",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"usuarios"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar usuario Copy",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/usuarios/6",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"usuarios",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

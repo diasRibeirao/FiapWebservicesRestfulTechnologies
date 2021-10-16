@@ -1,6 +1,6 @@
-﻿namespace FiapWebservicesRestfulTechnologies.Data.VO
+﻿namespace FiapWebservicesRestfulTechnologies.Data.DTO
 {
-    public class UsuarioVO
+    public class UsuarioDTO
     {
         public long Id { get; set; }
 

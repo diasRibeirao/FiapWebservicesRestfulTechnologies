@@ -1,4 +1,5 @@
-﻿using FiapWebservicesRestfulTechnologies.Model.Base;
+﻿using FiapWebservicesRestfulTechnologies.Model;
+using FiapWebservicesRestfulTechnologies.Model.Base;
 using FiapWebservicesRestfulTechnologies.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using System;

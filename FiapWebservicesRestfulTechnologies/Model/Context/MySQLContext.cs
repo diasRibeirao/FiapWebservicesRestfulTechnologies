@@ -8,6 +8,6 @@ namespace FiapWebservicesRestfulTechnologies.Model.Context
 
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
         
-        public DbSet<Usuario> Users { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }

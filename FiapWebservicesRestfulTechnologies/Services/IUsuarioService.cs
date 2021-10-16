@@ -1,18 +1,28 @@
-﻿using FiapWebservicesRestfulTechnologies.Data.VO;
+﻿using FiapWebservicesRestfulTechnologies.Data.DTO;
+using FiapWebservicesRestfulTechnologies.Model;
 using System.Collections.Generic;
 
 namespace FiapWebservicesRestfulTechnologies.Services
 {
     public interface IUsuarioService
     {
-        UsuarioVO Create(UsuarioVO user);
+        Usuario ValidateCredentials(UsuarioLoginDTO usuarioLogin);
 
-        UsuarioVO FindById(long id);
+        Usuario ValidateCredentials(string login);
 
-        List<UsuarioVO> FindAll();
+        bool RevokeToken(string login);
 
-        UsuarioVO Update(UsuarioVO user);
+        Usuario RefreshUsuarioInfo(Usuario usuario);
+
+        UsuarioDTO Create(UsuarioDTO user);
+
+        UsuarioDTO FindById(long id);
+
+        List<UsuarioDTO> FindAll();
+
+        UsuarioDTO Update(UsuarioDTO user);
 
         void Delete(long id);
+
     }
 }

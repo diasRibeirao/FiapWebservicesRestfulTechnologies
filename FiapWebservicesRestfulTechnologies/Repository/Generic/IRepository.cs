@@ -1,5 +1,6 @@
 ﻿using FiapWebservicesRestfulTechnologies.Model;
 using FiapWebservicesRestfulTechnologies.Model.Base;
+using System;
 using System.Collections.Generic;
 
 namespace FiapWebservicesRestfulTechnologies.Repository
@@ -17,5 +18,6 @@ namespace FiapWebservicesRestfulTechnologies.Repository
         void Delete(long id);
 
         bool Exists(long id);
+
     }
 }

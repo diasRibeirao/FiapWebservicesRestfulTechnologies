@@ -24,5 +24,11 @@ namespace FiapWebservicesRestfulTechnologies.Model
 
         [Column("email")]
         public string Email { get; set; }
+
+        [Column("refresh_token")]
+        public string RefreshToken { get; set; }
+
+        [Column("refresh_token_expiry_time")]
+        public DateTime RefreshTokenExpiryTime { get; set; }
     }
 }
