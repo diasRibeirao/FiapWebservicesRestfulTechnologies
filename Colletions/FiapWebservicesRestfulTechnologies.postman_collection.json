@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c520b0ed-3ed2-4b97-b988-dfdbbe593b8b",
+		"_postman_id": "cfefc838-236a-4113-8c5b-fa6c0ea75868",
 		"name": "FiapWebservicesRestfulTechnologies",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -319,6 +319,540 @@
 										"api",
 										"v{{version}}",
 										"usuarios",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Medicos",
+					"item": [
+						{
+							"name": "Busca todos medicos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/medicos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"medicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca medico pelo ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/medico/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"medico",
+										"1"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar medico",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/medico",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"medico"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar medico",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/medico",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"medico"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir medico",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/medico/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"medico",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Historicos",
+					"item": [
+						{
+							"name": "Busca todos historicos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/historicos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"historicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca Historicos pelo ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/historicos/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"historicos",
+										"1"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar historico",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/historicos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"historicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar historicos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/historicos",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"historicos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir historicos",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/historicos/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"historicos",
+										"7"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pacientes",
+					"item": [
+						{
+							"name": "Busca todos pacientes",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/pacientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Busca pacientes pelo ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/pacientes/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"pacientes",
+										"1"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Criar pacientes",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/pacientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Atualizar pacientes",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/pacientes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"pacientes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Excluir pacientes",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{accessToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"nome\": \"Usuário\",\r\n  \"sobrenome\": \"Fulano de Tal\",\r\n  \"login\": \"usuario.fulano\",\r\n  \"senha\": \"strin1212g\",\r\n  \"email\": \"fulano@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v{{version}}/pacientes/7",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v{{version}}",
+										"pacientes",
 										"7"
 									]
 								}
