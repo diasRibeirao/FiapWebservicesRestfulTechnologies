@@ -146,6 +146,7 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPaisService, PaisService>();
 			services.AddScoped<IEstadoService, EstadoService>();
+            services.AddScoped<ICidadeService, CidadeService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
