@@ -22,6 +22,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Routing;
+using FiapWebservicesRestfulTechnologies.PaisesService;
 
 namespace FiapWebservicesRestfulTechnologies
 {
@@ -90,10 +91,10 @@ namespace FiapWebservicesRestfulTechnologies
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
-            //if (Environment.IsDevelopment())
-            //{
-            //    MigrateDatabase(connection);
-            //}
+            if (Environment.IsDevelopment())
+            {
+                MigrateDatabase(connection);
+            }
 
             // Versioning API
             //services.AddApiVersioning();
@@ -143,6 +144,9 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPaisService, PaisService>();
+			services.AddScoped<IEstadoService, EstadoService>();
+            services.AddScoped<ICidadeService, CidadeService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }

@@ -38,7 +38,6 @@ CREATE TABLE `pacientes` (
   PRIMARY KEY (`id`),
   UNIQUE `login` (`login`)
 )
-
 CREATE TABLE `historicos` (
     `id` bigint NOT NULL AUTO_INCREMENT,
     `paciente` bigint,
@@ -47,6 +46,7 @@ CREATE TABLE `historicos` (
     FOREIGN KEY(medico) REFERENCES medicos(id),
     `anotacoes` varchar(600),
     `data` varchar(12),
-  PRIMARY KEY (`id`),
-  UNIQUE `login` (`login`)
+  PRIMARY KEY (`id`)
 )
+
+
