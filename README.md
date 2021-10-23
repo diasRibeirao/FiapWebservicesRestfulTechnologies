@@ -11,3 +11,6 @@ Marco Antonio - 341785**
 
 # Opção Escolhida
 1. Uma API que consuma outra API;​
+
+
+[![Build Status](https://app.travis-ci.com/diasRibeirao/FiapWebservicesRestfulTechnologies.svg?branch=master)](https://app.travis-ci.com/diasRibeirao/FiapWebservicesRestfulTechnologies)
