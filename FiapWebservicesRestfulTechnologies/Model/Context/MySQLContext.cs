@@ -13,5 +13,7 @@ namespace FiapWebservicesRestfulTechnologies.Model.Context
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Cidade> Cidades { get; set; }
         public DbSet<Medico> Medicos { get; set; }
+
+        public DbSet<Paciente> Pacientes { get; set; }
     }
 }
