@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace FiapWebservicesRestfulTechnologies.Controllers
 {
     [ApiVersion("1")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {

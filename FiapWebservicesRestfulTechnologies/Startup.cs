@@ -96,7 +96,7 @@ namespace FiapWebservicesRestfulTechnologies
             }
 
             // Versioning API
-            services.AddApiVersioning();
+            //services.AddApiVersioning();
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1",
@@ -107,8 +107,33 @@ namespace FiapWebservicesRestfulTechnologies
                         Description = "API RESTful desenvolvimento para avaliação da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
                         Contact = new OpenApiContact
                         {
-                            Name = "Grupo 2 "                        }
+                            Name = "Grupo 2 "                        
+                        }
                     });
+
+                var jwtSecurityScheme = new OpenApiSecurityScheme
+                    {
+                        Scheme = "bearer",
+                        BearerFormat = "JWT",
+                        Name = "JWT Authentication",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        Description = "Insira aqui **_APENAS_** seu token Bearer!",
+
+                        Reference = new OpenApiReference
+                        {
+                            Id = JwtBearerDefaults.AuthenticationScheme,
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    };
+
+                    c.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+
+                    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    {
+                        { jwtSecurityScheme, Array.Empty<string>() }
+                    });
+
             });
 
             // Lowercase routing
