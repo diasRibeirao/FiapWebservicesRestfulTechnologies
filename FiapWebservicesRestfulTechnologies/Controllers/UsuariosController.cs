@@ -10,7 +10,7 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
     [ApiVersion("1")]
     [ApiController]
     [Authorize("Bearer")]
-    [Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/v1/[controller]")]
     public class UsuariosController : ControllerBase
     {
         private readonly ILogger<UsuariosController> _logger;

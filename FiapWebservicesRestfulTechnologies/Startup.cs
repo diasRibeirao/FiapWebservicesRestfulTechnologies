@@ -90,13 +90,13 @@ namespace FiapWebservicesRestfulTechnologies
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
-            if (Environment.IsDevelopment())
-            {
-                MigrateDatabase(connection);
-            }
+            //if (Environment.IsDevelopment())
+            //{
+            //    MigrateDatabase(connection);
+            //}
 
             // Versioning API
-            services.AddApiVersioning();
+            //services.AddApiVersioning();
 
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1",
@@ -104,11 +104,36 @@ namespace FiapWebservicesRestfulTechnologies
                     {
                         Title = "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO",
                         Version = "v1",
-                        Description = "API RESTful desenvolvimento para avaliação da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
+                        Description = "API RESTful desenvolvimento para avaliaÃ§Ã£o da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
                         Contact = new OpenApiContact
                         {
-                            Name = "Grupo 2 "                        }
+                            Name = "Grupo 2 "                        
+                        }
                     });
+
+                var jwtSecurityScheme = new OpenApiSecurityScheme
+                    {
+                        Scheme = "bearer",
+                        BearerFormat = "JWT",
+                        Name = "JWT Authentication",
+                        In = ParameterLocation.Header,
+                        Type = SecuritySchemeType.Http,
+                        Description = "Insira aqui **_APENAS_** seu token Bearer!",
+
+                        Reference = new OpenApiReference
+                        {
+                            Id = JwtBearerDefaults.AuthenticationScheme,
+                            Type = ReferenceType.SecurityScheme
+                        }
+                    };
+
+                    c.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+
+                    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                    {
+                        { jwtSecurityScheme, Array.Empty<string>() }
+                    });
+
             });
 
             // Lowercase routing
