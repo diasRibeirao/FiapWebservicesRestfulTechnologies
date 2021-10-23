@@ -11,58 +11,58 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
     [ApiController]
     [Authorize("Bearer")]
     [Route("api/v1/[controller]")]
-    public class MedicosController : ControllerBase
+    public class PacientesController : ControllerBase
     {
-        private readonly ILogger<MedicosController> _logger;
+        private readonly ILogger<PacientesController> _logger;
 
-        private IMedicoService _medicoService;
+        private IPacienteService _pacienteService;
 
-        public MedicosController(ILogger<MedicosController> logger, IMedicoService medicoService)
+        public PacientesController(ILogger<PacientesController> logger, IPacienteService pacienteService)
         {
             _logger = logger;
-            _medicoService = medicoService;
+            _pacienteService = pacienteService;
         }
 
         [HttpGet]
-        [ProducesResponseType((200), Type = typeof(List<MedicoDTO>))]
+        [ProducesResponseType((200), Type = typeof(List<PacienteDTO>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         public IActionResult Get()
         {
-            return Ok(_medicoService.FindAll());
+            return Ok(_pacienteService.FindAll());
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType((200), Type = typeof(MedicoDTO))]
+        [ProducesResponseType((200), Type = typeof(PacienteDTO))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         public IActionResult Get(long id)
         {
-            var user = _medicoService.FindById(id);
+            var user = _pacienteService.FindById(id);
             if (user == null) return NotFound();
             return Ok(user);
         }
 
         [HttpPost]
-        [ProducesResponseType((200), Type = typeof(MedicoDTO))]
+        [ProducesResponseType((200), Type = typeof(PacienteDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Post([FromBody] MedicoDTO medico)
+        public IActionResult Post([FromBody] PacienteDTO paciente)
         {
-            if (medico == null) return BadRequest();
-            return Ok(_medicoService.Create(medico));
+            if (paciente == null) return BadRequest();
+            return Ok(_pacienteService.Create(paciente));
         }
 
         [HttpPut]
-        [ProducesResponseType((200), Type = typeof(MedicoDTO))]
+        [ProducesResponseType((200), Type = typeof(PacienteDTO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Put([FromBody] MedicoDTO medico)
+        public IActionResult Put([FromBody] PacienteDTO paciente)
         {
-            if (medico == null) return BadRequest();
-            return Ok(_medicoService.Update(medico));
+            if (paciente == null) return BadRequest();
+            return Ok(_pacienteService.Update(paciente));
         }
 
         [HttpDelete("{id}")]
@@ -71,7 +71,7 @@ namespace FiapWebservicesRestfulTechnologies.Controllers
         [ProducesResponseType(401)]
         public IActionResult Delete(long id)
         {
-            _medicoService.Delete(id);
+            _pacienteService.Delete(id);
             return NoContent();
         }
     }
