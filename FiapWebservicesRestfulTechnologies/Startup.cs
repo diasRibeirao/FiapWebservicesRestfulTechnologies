@@ -103,9 +103,9 @@ namespace FiapWebservicesRestfulTechnologies
                 c.SwaggerDoc("v1",
                     new OpenApiInfo
                     {
-                        Title = "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO",
+                        Title = "REST API's 41SCJ - Webservices & restful technologies",
                         Version = "v1",
-                        Description = "API RESTful desenvolvimento para avaliação da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
+                        Description = "API RESTful para avaliação da disciplina - Professor Eduardo Ferreira Falego",
                         Contact = new OpenApiContact
                         {
                             Name = "Grupo 2 "                        
@@ -147,6 +147,7 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddScoped<IPaisService, PaisService>();
 			services.AddScoped<IEstadoService, EstadoService>();
             services.AddScoped<ICidadeService, CidadeService>();
+			services.AddScoped<IEnderecoService, EnderecoService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
@@ -166,10 +167,10 @@ namespace FiapWebservicesRestfulTechnologies
             app.UseCors();
 
             app.UseSwagger();
-
+             
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
-                    "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO");
+                    "REST API's 41SCJ - Webservices & restful technologies | Professor Eduardo Ferreira Falego");
             });
 
             var option = new RewriteOptions();

@@ -1,0 +1,10 @@
+INSERT INTO `pacientes` (`nome`, `sobrenome`, `login`, `senha`, `email`, `plano`,`refresh_token`, `refresh_token_expiry_time`) VALUES 
+('Mariana', 'Oliva', 'mariana.oliva', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'marianaoliva@gmail.com', 'Travelex' ,'h9lzVOoLlBoTbcQrh/e16/aIj+4p6C67lLdDbBRMsjE=', '2021-10-27 17:30:49');
+INSERT INTO `pacientes` (`nome`, `sobrenome`, `login`, `senha`, `email`, `plano`,`refresh_token`, `refresh_token_expiry_time`) VALUES 
+('Silmara', 'Poiswen', 'silmara.poiswen', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'silmarap@hotmail.com', 'Unimed',  'h9lzVOoLlBoTbcQrh/e16/aIj+4p6C67lLdDbBRMsjE=', '2021-10-27 17:30:49');
+INSERT INTO `pacientes` (`nome`, `sobrenome`, `login`, `senha`, `email`, `plano`,`refresh_token`, `refresh_token_expiry_time`) VALUES 
+('Claudia', 'Asturias', 'claudia.asturias', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'claudiasturias@uol.com.br', 'Sulamerica', 'h9lzVOoLlBoTbcQrh/e16/aIj+4p6C67lLdDbBRMsjE=', '2021-10-27 17:30:49');
+INSERT INTO `pacientes` (`nome`, `sobrenome`, `login`, `senha`, `email` ,`plano`, `refresh_token`, `refresh_token_expiry_time`) VALUES 
+('Maria', 'Polinari', 'maria.polinari', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'mariapolinari@gmail.com', 'Nao possui', 'h9lzVOoLlBoTbcQrh/e16/aIj+4p6C67lLdDbBRMsjE=', '2021-10-27 17:30:49');
+INSERT INTO `pacientes` (`nome`, `sobrenome`, `login`, `senha`, `email`, `plano`, `refresh_token`, `refresh_token_expiry_time`) VALUES 
+('Simone', 'Vicente', 'simone.vicente',  '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'simoninhavicente@fiap.com.br', 'Bradesco Seguros' ,'h9lzVOoLlBoTbcQrh/e16/aIj+4p6C67lLdDbBRMsjE=', '2021-10-27 17:30:49');
