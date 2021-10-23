@@ -14,13 +14,13 @@ namespace FiapWebservicesRestfulTechnologies.Services
 
         Usuario RefreshUsuarioInfo(Usuario usuario);
 
-        UsuarioDTO Create(UsuarioDTO user);
+        UsuarioDTO Create(UsuarioDTO usuario);
 
         UsuarioDTO FindById(long id);
 
         List<UsuarioDTO> FindAll();
 
-        UsuarioDTO Update(UsuarioDTO user);
+        UsuarioDTO Update(UsuarioDTO usuario);
 
         void Delete(long id);
 

@@ -145,6 +145,7 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPaisService, PaisService>();
+			services.AddScoped<IEstadoService, EstadoService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }
