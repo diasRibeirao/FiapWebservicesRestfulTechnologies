@@ -91,10 +91,10 @@ namespace FiapWebservicesRestfulTechnologies
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
-            if (Environment.IsDevelopment())
-            {
-                MigrateDatabase(connection);
-            }
+            //if (Environment.IsDevelopment())
+            //{
+            //    MigrateDatabase(connection);
+            //}
 
             // Versioning API
             //services.AddApiVersioning();
@@ -105,7 +105,7 @@ namespace FiapWebservicesRestfulTechnologies
                     {
                         Title = "REST API's 41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO",
                         Version = "v1",
-                        Description = "API RESTful desenvolvimento para avaliação da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
+                        Description = "API RESTful desenvolvimento para avaliaÃ§Ã£o da disciplina '41SCJ / WEBSERVICES & RESTFUL TECHNOLOGIES / EDUARDO FERREIRA GALEGO'",
                         Contact = new OpenApiContact
                         {
                             Name = "Grupo 2 "                        
