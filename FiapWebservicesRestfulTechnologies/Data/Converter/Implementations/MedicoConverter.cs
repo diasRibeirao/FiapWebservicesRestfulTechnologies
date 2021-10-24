@@ -17,7 +17,6 @@ namespace FiapWebservicesRestfulTechnologies.Data.Converter.Implementations
                 Nome = origin.Nome,
                 Sobrenome = origin.Sobrenome,
                 Login = origin.Login,
-                Senha = origin.Senha,
                 Email = origin.Email,
                 Crm = origin.Crm
             };
@@ -32,7 +31,6 @@ namespace FiapWebservicesRestfulTechnologies.Data.Converter.Implementations
                 Nome = origin.Nome,
                 Sobrenome = origin.Sobrenome,
                 Login = origin.Login,
-                Senha = origin.Senha,
                 Email = origin.Email,
                 Crm = origin.Crm
             };

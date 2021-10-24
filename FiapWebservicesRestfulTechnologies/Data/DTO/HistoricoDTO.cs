@@ -1,4 +1,5 @@
 ﻿using FiapWebservicesRestfulTechnologies.Model;
+using System;
 
 namespace FiapWebservicesRestfulTechnologies.Data.DTO
 {
@@ -6,12 +7,12 @@ namespace FiapWebservicesRestfulTechnologies.Data.DTO
     {
         public long Id { get; set; }
 
-        public Paciente Paciente { get; set; }
+        public long PacienteID { get; set; }
 
-        public Medico Medico { get; set; }
+        public long MedicoID { get; set; }
 
         public string Anotacoes { get; set; }
 
-        public string Data { get; set; }
+        public DateTime Data { get; set; }
     }
 }

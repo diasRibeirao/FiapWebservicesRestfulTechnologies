@@ -16,10 +16,10 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 
         private readonly UsuarioConverter _converter;
 
-        public Usuario ValidateCredentials(UsuarioLoginDTO usuarioLogin)
+        public Usuario ValidateCredentials(LoginDTO login)
         {
-            var senha = ComputeHash(usuarioLogin.Senha, new SHA256CryptoServiceProvider());
-            return _repository.FindAll().FirstOrDefault(u => (u.Login == usuarioLogin.Login) && (u.Senha == senha));
+            var senha = ComputeHash(login.Senha, new SHA256CryptoServiceProvider());
+            return _repository.FindAll().FirstOrDefault(u => (u.Login == login.Login) && (u.Senha == senha));
         }
 
         public Usuario ValidateCredentials(string login)
@@ -85,6 +85,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
         public UsuarioDTO Create(UsuarioDTO usuario)
         {
             var usuarioEntity = _converter.Parse(usuario);
+            usuarioEntity.Senha = ComputeHash("admin123", new SHA256CryptoServiceProvider());
             usuarioEntity = _repository.Create(usuarioEntity);
             return _converter.Parse(usuarioEntity);
         }

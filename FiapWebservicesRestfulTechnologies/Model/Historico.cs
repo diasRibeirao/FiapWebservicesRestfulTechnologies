@@ -10,16 +10,20 @@ namespace FiapWebservicesRestfulTechnologies.Model
     [Table("historicos")]
     public class Historico : BaseEntity
     {
-        [Column("paciente")]
-        public Paciente Paciente { get; set; }
+        [Column("paciente_id")]
+        public long PacienteID { get; set; }
 
-        [Column("medico")]
-        public Medico Medico { get; set; }
+        public virtual Paciente Paciente { get; set; }
+
+        [Column("medico_id")]
+        public long MedicoID { get; set; }
+
+        public virtual Medico Medico { get; set; }
 
         [Column("anotacoes")]
         public string Anotacoes { get; set; }
 
         [Column("data")]
-        public string data { get; set; }
+        public DateTime Data { get; set; }
     }
 }

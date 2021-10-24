@@ -4,10 +4,22 @@ namespace FiapWebservicesRestfulTechnologies.Services
 {
     public interface IAuthService
     {
-        TokenDTO ValidateCredentials(UsuarioLoginDTO usuarioLogin);
+        TokenDTO ValidateCredentialsUsuario(LoginDTO login);
 
-        TokenDTO ValidateCredentials(TokenDTO token);
+        TokenDTO ValidateCredentialsUsuario(TokenDTO token);
 
-        bool RevokeToken(string userName);
+        bool RevokeTokenUsuario(string userName);
+
+        TokenDTO ValidateCredentialsMedico(LoginDTO login);
+
+        TokenDTO ValidateCredentialsMedico(TokenDTO token);
+
+        bool RevokeTokenMedico(string userName);
+
+        TokenDTO ValidateCredentialsPaciente(LoginDTO login);
+
+        TokenDTO ValidateCredentialsPaciente(TokenDTO token);
+
+        bool RevokeTokenPaciente(string userName);
     }
 }

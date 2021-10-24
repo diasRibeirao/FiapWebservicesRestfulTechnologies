@@ -7,7 +7,7 @@ namespace FiapWebservicesRestfulTechnologies.Services
     public interface IHistoricoService
     {
 
-        HistoricoDTO Create(HistoricoDTO user);
+        HistoricoDTO Create(HistoricoDTO historico);
 
         HistoricoDTO FindById(long id);
 

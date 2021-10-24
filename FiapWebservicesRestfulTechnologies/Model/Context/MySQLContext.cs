@@ -14,7 +14,7 @@ namespace FiapWebservicesRestfulTechnologies.Model.Context
         public DbSet<Cidade> Cidades { get; set; }
 		public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Medico> Medicos { get; set; }
-
         public DbSet<Paciente> Pacientes { get; set; }
+        public DbSet<Historico> Historicos { get; set; }
     }
 }

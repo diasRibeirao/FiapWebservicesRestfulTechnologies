@@ -26,14 +26,14 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
             _tokenService = tokenService;
         }
 
-        public TokenDTO ValidateCredentials(UsuarioLoginDTO usuarioLogin)
+        public TokenDTO ValidateCredentialsUsuario(LoginDTO login)
         {
-            var usuario = _usuarioService.ValidateCredentials(usuarioLogin);
+            var usuario = _usuarioService.ValidateCredentials(login);
             if (usuario == null) return null;
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                new Claim(JwtRegisteredClaimNames.UniqueName, usuarioLogin.Login)
+                new Claim(JwtRegisteredClaimNames.UniqueName, login.Login)
             };
 
             var accessToken = _tokenService.GenerateAccessToken(claims);
@@ -56,7 +56,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
                 );
         }
 
-        public TokenDTO ValidateCredentials(TokenDTO token)
+        public TokenDTO ValidateCredentialsUsuario(TokenDTO token)
         {
             var accessToken = token.AccessToken;
             var refreshToken = token.RefreshToken;
@@ -91,9 +91,39 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
         }
 
 
-        public bool RevokeToken(string userName)
+        public bool RevokeTokenUsuario(string userName)
         {
             return _usuarioService.RevokeToken(userName);
+        }
+
+        public TokenDTO ValidateCredentialsMedico(LoginDTO login)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TokenDTO ValidateCredentialsMedico(TokenDTO token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeTokenMedico(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TokenDTO ValidateCredentialsPaciente(LoginDTO login)
+        {
+            throw new NotImplementedException();
+        }
+
+        public TokenDTO ValidateCredentialsPaciente(TokenDTO token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeTokenPaciente(string userName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

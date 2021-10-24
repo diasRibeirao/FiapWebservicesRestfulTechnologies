@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FiapWebservicesRestfulTechnologies.Model
 {
-    [Table("medicos")]
+    [Table("pacientes")]
     public class Paciente : BaseEntity
     {
         [Column("nome")]

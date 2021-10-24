@@ -6,7 +6,7 @@ namespace FiapWebservicesRestfulTechnologies.Services
 {
     public interface IUsuarioService
     {
-        Usuario ValidateCredentials(UsuarioLoginDTO usuarioLogin);
+        Usuario ValidateCredentials(LoginDTO login);
 
         Usuario ValidateCredentials(string login);
 

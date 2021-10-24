@@ -14,8 +14,10 @@ namespace FiapWebservicesRestfulTechnologies.Data.Converter.Implementations
             return new Historico
             {
                 Id = origin.Id,
-                Medico = origin.Medico,
-                Paciente = origin.Paciente
+                MedicoID = origin.MedicoID,
+                PacienteID = origin.PacienteID,
+                Anotacoes = origin.Anotacoes,
+                Data = origin.Data
             };
         }
 
@@ -25,8 +27,10 @@ namespace FiapWebservicesRestfulTechnologies.Data.Converter.Implementations
             return new HistoricoDTO
             {
                 Id = origin.Id,
-                Medico = origin.Medico,
-                Paciente = origin.Paciente
+                MedicoID = origin.MedicoID,
+                PacienteID = origin.PacienteID,
+                Anotacoes = origin.Anotacoes,
+                Data = origin.Data
             };
         }
 
