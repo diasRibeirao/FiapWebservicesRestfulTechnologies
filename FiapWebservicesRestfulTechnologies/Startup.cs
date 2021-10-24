@@ -46,8 +46,8 @@ namespace FiapWebservicesRestfulTechnologies
         public void ConfigureServices(IServiceCollection services)
         {
             // Set Account SID and Auth Token
-            System.Environment.SetEnvironmentVariable("TWILIO_ACCOUNT_SID", "AC390f0cfe0707a069223009ca9b53fa9b");
-            System.Environment.SetEnvironmentVariable("TWILIO_AUTH_TOKEN", "dfd29d7e65108b7b0040cbd1202c80fd");
+            System.Environment.SetEnvironmentVariable("TWILIO_ACCOUNT_SID", "COLE AQUI SID");
+            System.Environment.SetEnvironmentVariable("TWILIO_AUTH_TOKEN", "COLE AQUI TOKEN");
 
             var tokenConfigurations = new TokenConfiguration();
 
