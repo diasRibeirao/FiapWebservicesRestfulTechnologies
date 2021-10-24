@@ -45,6 +45,10 @@ namespace FiapWebservicesRestfulTechnologies
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Set Account SID and Auth Token
+            System.Environment.SetEnvironmentVariable("TWILIO_ACCOUNT_SID", "AC390f0cfe0707a069223009ca9b53fa9b");
+            System.Environment.SetEnvironmentVariable("TWILIO_AUTH_TOKEN", "dfd29d7e65108b7b0040cbd1202c80fd");
+
             var tokenConfigurations = new TokenConfiguration();
 
             new ConfigureFromConfigurationOptions<TokenConfiguration>(
@@ -151,6 +155,7 @@ namespace FiapWebservicesRestfulTechnologies
             services.AddScoped<IMedicoService, MedicoService>();
             services.AddScoped<IPacienteService, PacienteService>();
             services.AddScoped<IHistoricoService, HistoricoService>();
+			services.AddScoped<IConsultaService, ConsultaService>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
         }

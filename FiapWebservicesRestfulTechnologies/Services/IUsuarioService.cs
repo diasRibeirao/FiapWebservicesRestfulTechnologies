@@ -12,7 +12,7 @@ namespace FiapWebservicesRestfulTechnologies.Services
 
         bool RevokeToken(string login);
 
-        Usuario RefreshUsuarioInfo(Usuario usuario);
+        Usuario RefreshInfo(Usuario usuario);
 
         UsuarioDTO Create(UsuarioDTO usuario);
 

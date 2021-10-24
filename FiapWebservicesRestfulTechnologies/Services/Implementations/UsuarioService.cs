@@ -36,7 +36,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
             return true;
         }
 
-        public Usuario RefreshUsuarioInfo(Usuario usuario)
+        public Usuario RefreshInfo(Usuario usuario)
         {
             if (!_repository.FindAll().Any(u => u.Id.Equals(usuario.Id))) return null;
 

@@ -1,6 +1,4 @@
-﻿using FiapWebservicesRestfulTechnologies.Model;
-using FiapWebservicesRestfulTechnologies.Model.Base;
-using System;
+﻿using FiapWebservicesRestfulTechnologies.Model.Base;
 using System.Collections.Generic;
 
 namespace FiapWebservicesRestfulTechnologies.Repository

@@ -8,18 +8,18 @@ namespace FiapWebservicesRestfulTechnologies.Services
 
         TokenDTO ValidateCredentialsUsuario(TokenDTO token);
 
-        bool RevokeTokenUsuario(string userName);
+        bool RevokeTokenUsuario(string login);
 
         TokenDTO ValidateCredentialsMedico(LoginDTO login);
 
         TokenDTO ValidateCredentialsMedico(TokenDTO token);
 
-        bool RevokeTokenMedico(string userName);
+        bool RevokeTokenMedico(string login);
 
         TokenDTO ValidateCredentialsPaciente(LoginDTO login);
 
         TokenDTO ValidateCredentialsPaciente(TokenDTO token);
 
-        bool RevokeTokenPaciente(string userName);
+        bool RevokeTokenPaciente(string login);
     }
 }

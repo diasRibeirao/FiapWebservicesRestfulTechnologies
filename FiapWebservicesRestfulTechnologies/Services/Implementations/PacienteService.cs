@@ -16,7 +16,34 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 
         private readonly PacienteConverter _converter;
 
-        public Paciente RefreshPacienteInfo(Paciente paciente)
+        public Paciente ValidateCredentials(LoginDTO login)
+        {
+            var senha = ComputeHash(login.Senha, new SHA256CryptoServiceProvider());
+            return _repository.FindAll().FirstOrDefault(u => (u.Login == login.Login) && (u.Senha == senha));
+        }
+
+        public Paciente ValidateCredentials(string login)
+        {
+            return _repository.FindAll().SingleOrDefault(u => (u.Login == login));
+        }
+
+        public bool RevokeToken(string login)
+        {
+            var paciente = _repository.FindAll().SingleOrDefault(u => (u.Login == login));
+            if (paciente is null) return false;
+            paciente.RefreshToken = null;
+            _repository.Update(paciente);
+            return true;
+        }
+
+        private string ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
+        {
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+            return BitConverter.ToString(hashedBytes);
+        }
+
+        public Paciente RefreshInfo(Paciente paciente)
         {
             if (!_repository.FindAll().Any(u => u.Id.Equals(paciente.Id))) return null;
 
@@ -36,7 +63,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
             return result;
         }
 
-          public PacienteService(IRepository<Paciente> repository)
+        public PacienteService(IRepository<Paciente> repository)
         {
             _repository = repository;
             _converter = new PacienteConverter();
@@ -58,6 +85,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
         public PacienteDTO Create(PacienteDTO paciente)
         {
             var pacienteEntity = _converter.Parse(paciente);
+            pacienteEntity.Senha = ComputeHash("admin123", new SHA256CryptoServiceProvider());
             pacienteEntity = _repository.Create(pacienteEntity);
             return _converter.Parse(pacienteEntity);
         }

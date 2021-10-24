@@ -16,27 +16,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 
         private readonly HistoricoConverter _converter;
 
-        public Historico RefreshHistoricoInfo(Historico historico)
-        {
-            if (!_repository.FindAll().Any(u => u.Id.Equals(historico.Id))) return null;
-
-            var result = _repository.FindAll().SingleOrDefault(u => u.Id.Equals(historico.Id));
-            if (result != null)
-            {
-                try
-                {
-                    return _repository.Update(historico);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-
-            return result;
-        }
-
-          public HistoricoService(IRepository<Historico> repository)
+        public HistoricoService(IRepository<Historico> repository)
         {
             _repository = repository;
             _converter = new HistoricoConverter();

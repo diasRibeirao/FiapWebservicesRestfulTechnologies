@@ -16,7 +16,34 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
 
         private readonly MedicoConverter _converter;
 
-        public Medico RefreshMedicoInfo(Medico medico)
+        public Medico ValidateCredentials(LoginDTO login)
+        {
+            var senha = ComputeHash(login.Senha, new SHA256CryptoServiceProvider());
+            return _repository.FindAll().FirstOrDefault(u => (u.Login == login.Login) && (u.Senha == senha));
+        }
+
+        public Medico ValidateCredentials(string login)
+        {
+            return _repository.FindAll().SingleOrDefault(u => (u.Login == login));
+        }
+
+        public bool RevokeToken(string login)
+        {
+            var medico = _repository.FindAll().SingleOrDefault(u => (u.Login == login));
+            if (medico is null) return false;
+            medico.RefreshToken = null;
+            _repository.Update(medico);
+            return true;
+        }
+
+        private string ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
+        {
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+            return BitConverter.ToString(hashedBytes);
+        }
+
+        public Medico RefreshInfo(Medico medico)
         {
             if (!_repository.FindAll().Any(u => u.Id.Equals(medico.Id))) return null;
 
@@ -58,6 +85,7 @@ namespace FiapWebservicesRestfulTechnologies.Services.Implementations
         public MedicoDTO Create(MedicoDTO medico)
         {
             var medicoEntity = _converter.Parse(medico);
+            medicoEntity.Senha = ComputeHash("admin123", new SHA256CryptoServiceProvider());
             medicoEntity = _repository.Create(medicoEntity);
             return _converter.Parse(medicoEntity);
         }

@@ -6,6 +6,13 @@ namespace FiapWebservicesRestfulTechnologies.Services
 {
     public interface IMedicoService
     {
+        Medico ValidateCredentials(LoginDTO login);
+
+        Medico ValidateCredentials(string login);
+
+        bool RevokeToken(string login);
+
+        Medico RefreshInfo(Medico medico);
 
         MedicoDTO Create(MedicoDTO user);
 
