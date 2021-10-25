@@ -15,5 +15,5 @@ A ideia: A nossa ideia foi criar um sistema para facilitar a comunicação entre
 Tecnologias: Para esse projeto escolhemos nos desafiar. Somos uma equipe majoritariamente de desenvolvedores Java mas fizemos esse projeto em C# utilizando o visual studio e utilizamos o MySQL como solução de banco de dados.**  
 Documentação: Para a documentação da API utilizamos o swagger por permitir uma integração fácil com uma página web e, caso necessário, consegue expor documentos em padrão OpenAPI para subir numa cloud pública. Fizemos também uma coleção no postman para facilitar os testes, ela se encontra na pasta "collections" só importar os arquivos para o postman adequando apenas a URL para a porta que subiu na sua máquina.**  
 O código foi disponibilizado no git atraves da seguinte URL mas, por precaução, anexamos tambem aqui no sistema. https://github.com/diasRibeirao/FiapWebservicesRestfulTechnologies
-A página do swagger da aplicação está disponível no seguinte link: http://localhost:5517/Swagger/index.html Verificar a porta que subiu, mas por padrão, ao iniciar o projeto ele já irá encaminhar para a página do swagger.**  
+**  A página do swagger da aplicação está disponível no seguinte link: http://localhost:5517/Swagger/index.html **  Verificar a porta que subiu, mas por padrão, ao iniciar o projeto ele já irá encaminhar para a página do swagger.**  
 
